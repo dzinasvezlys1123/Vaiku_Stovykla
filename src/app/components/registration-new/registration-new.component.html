@@ -1,0 +1,54 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      Registracija į stovyklą
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onAddNewRegistration(f)" #f="ngForm">
+        <div class="mb-3">
+          <label class="form-label">Vardas</label>
+          <input type="text" class="form-control" [ngClass]="(!name.valid && name.touched)?'is-invalid':''"  name="name" ngModel required minlength="3" maxlength="15" #name="ngModel">
+          <div class="invalid-feedback"  > Vardas yra privalomas, tekstas turi būti ne ilgesnis nei 15 simbolių ir ne trumpesnis nei 3 simboliai</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Pavardė</label>
+          <input type="text" class="form-control" [ngClass]="(!surname.valid && surname.touched)?'is-invalid':''"  name="surname" ngModel required minlength="3" maxlength="15" #surname="ngModel">
+          <div class="invalid-feedback"  > Pavardė yra privaloma, tekstas turi būti ne ilgesnis nei 15 simbolių ir ne trumpesnis nei 3 simboliai</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Gim. Metai</label>
+          <input type="number" class="form-control" name="year" [ngClass]="(!year.valid && year.touched)?'is-invalid':''" ngModel required carYear min="2000" #year="ngModel">
+          <div class="invalid-feedback"  > Privalote nurodyti metus</div>
+        </div>
+        <div class="mb-3">
+        <label class="form-label">Lytis</label><br>
+          <input type="radio" id="male" name="gender" ngModel required  value="male">
+          <label for="male">Vyras</label><br>
+          <input type="radio" id="female" name="gender" ngModel required  value="female">
+          <label for="female">Moteris</label><br>
+          <div class="invalid-feedback"  > pasirinkite lyti</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">El. paštas</label>
+          <input type="text" class="form-control" name="email" [ngClass]="(!email.valid && email.touched)?'is-invalid':''" email="true" ngModel required #email="ngModel">
+          <div class="invalid-feedback"  > Privalote nurodyti El. paštą </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tel. numeris</label>
+          <input type="text" placeholder="+37065312345" class="form-control" name="phone" [ngClass]="(!phoneNumber.valid && phoneNumber.touched)?'is-invalid':''" ngModel required minlength="10" maxlength="12" #phoneNumber="ngModel">
+          <div class="invalid-feedback"  > Privalote nurodyti telefono numberį</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Klasė</label>
+          <input type="number" class="form-control" name="Class" [ngClass]="(!Class.valid && Class.touched)?'is-invalid':''" ngModel required min="5" max="12" #Class="ngModel">
+          <div class="invalid-feedback"  > Privalote nurodyti Klasę, nuo penktos klasės iki dvyliktos</div>
+        </div>
+        <div>
+          <button type="button" class="btn btn-info ">Išvalyti formą</button>
+          <button class="btn btn-success float-end" [disabled]="!f.valid" >Pridėti</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
